@@ -1,0 +1,142 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <assimilation>5</assimilation>
+        <language>English</language>
+        <setmode>PreserveTraits</setmode>
+        <setspeed>0.65</setspeed>
+        <spellsets>
+            <accuracy>
+                <slot01>delta thrust</slot01>
+                <slot02>barbed crescent</slot02>
+                <slot03>thrashing assault</slot03>
+                <slot04>heavy strike</slot04>
+                <slot05>empty thrash</slot05>
+                <slot06>paralyzing triad</slot06>
+                <slot07>erratic flutter</slot07>
+                <slot08>sudden lunge</slot08>
+                <slot09>fantod</slot09>
+                <slot10>sinker drill</slot10>
+                <slot11>nat. meditation</slot11>
+                <slot12>anvil lightning</slot12>
+                <slot13>dimensional death</slot13>
+                <slot14>disseverment</slot14>
+                <slot15>frenetic rip</slot15>
+                <slot16>battery charge</slot16>
+                <slot17>occultation</slot17>
+                <slot18>magic fruit</slot18>
+                <slot19>cocoon</slot19>
+                <slot20>vanity dive</slot20>
+            </accuracy>
+            <default>
+                <slot01>delta thrust</slot01>
+                <slot02>barbed crescent</slot02>
+                <slot03>thrashing assault</slot03>
+                <slot04>heavy strike</slot04>
+                <slot05>empty thrash</slot05>
+                <slot06>paralyzing triad</slot06>
+                <slot07>sinker drill</slot07>
+                <slot08>erratic flutter</slot08>
+                <slot09>sudden lunge</slot09>
+                <slot10>fantod</slot10>
+                <slot11>diffusion ray</slot11>
+                <slot12>tail slap</slot12>
+                <slot13>sickle slash</slot13>
+                <slot14>nat. meditation</slot14>
+                <slot15>magic fruit</slot15>
+                <slot16>battery charge</slot16>
+                <slot17>cocoon</slot17>
+                <slot18>occultation</slot18>
+                <slot19>subduction</slot19>
+                <slot20>white wind</slot20>
+            </default>
+            <magic>
+                <slot01>glutinous dart</slot01>
+                <slot02>magic fruit</slot02>
+                <slot03>cocoon</slot03>
+                <slot04>barrier tusk</slot04>
+                <slot05>dream flower</slot05>
+                <slot06>barbed crescent</slot06>
+                <slot07>sound blast</slot07>
+                <slot08>occultation</slot08>
+                <slot09>cursed sphere</slot09>
+                <slot10>subduction</slot10>
+                <slot11>delta thrust</slot11>
+                <slot12>erratic flutter</slot12>
+                <slot13>tenebral crush</slot13>
+                <slot14>entomb</slot14>
+                <slot15>regurgitation</slot15>
+                <slot16>diamondhide</slot16>
+                <slot17>spectral floe</slot17>
+                <slot18>water bomb</slot18>
+                <slot19>magic hammer</slot19>
+                <slot20>battery charge</slot20>
+            </magic>
+            <th>
+                <slot01>fantod</slot01>
+                <slot02>subduction</slot02>
+                <slot03>tail slap</slot03>
+                <slot04>thrashing assault</slot04>
+                <slot05>barbed crescent</slot05>
+                <slot06>sudden lunge</slot06>
+                <slot07>occultation</slot07>
+                <slot08>cocoon</slot08>
+                <slot09>charged whisker</slot09>
+                <slot10>delta thrust</slot10>
+                <slot11>erratic flutter</slot11>
+                <slot12>disseverment</slot12>
+                <slot13>magic fruit</slot13>
+                <slot14>sickle slash</slot14>
+                <slot15>empty thrash</slot15>
+                <slot16>heavy strike</slot16>
+                <slot17>amorphic spikes</slot17>
+                <slot18>nat. meditation</slot18>
+                <slot19>diffusion ray</slot19>
+                <slot20>battery charge</slot20>
+            </th>
+            <vw1>
+                <slot01>firespit</slot01>
+                <slot02>heat breath</slot02>
+                <slot03>thermal pulse</slot03>
+                <slot04>blastbomb</slot04>
+                <slot05>infrasonics</slot05>
+                <slot06>frost breath</slot06>
+                <slot07>ice break</slot07>
+                <slot08>cold wave</slot08>
+                <slot09>sandspin</slot09>
+                <slot10>magnetite cloud</slot10>
+                <slot11>cimicine discharge</slot11>
+                <slot12>bad breath</slot12>
+                <slot13>acrid stream</slot13>
+                <slot14>maelstrom</slot14>
+                <slot15>corrosive ooze</slot15>
+                <slot16>cursed sphere</slot16>
+                <slot17>awful eye</slot17>
+                <slot18>erratic flutter</slot18>
+                <slot19>battery charge</slot19>
+                <slot20>thrashing assault</slot20>
+            </vw1>
+            <vw2>
+                <slot01>hecatomb wave</slot01>
+                <slot02>mysterious light</slot02>
+                <slot03>leafstorm</slot03>
+                <slot04>reaving wind</slot04>
+                <slot05>temporal shift</slot05>
+                <slot06>mind blast</slot06>
+                <slot07>blitzstrahl</slot07>
+                <slot08>charged whisker</slot08>
+                <slot09>blank gaze</slot09>
+                <slot10>radiant breath</slot10>
+                <slot11>light of penance</slot11>
+                <slot12>actinic burst</slot12>
+                <slot13>death ray</slot13>
+                <slot14>eyes on me</slot14>
+                <slot15>sandspray</slot15>
+                <slot16>erratic flutter</slot16>
+                <slot17>battery charge</slot17>
+                <slot18>thrashing assault</slot18>
+                <slot19>delta thrust</slot19>
+            </vw2>
+        </spellsets>
+    </global>
+</settings>
