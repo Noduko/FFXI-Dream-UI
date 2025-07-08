@@ -1,0 +1,18 @@
+sets.exported={
+    main="Naegling",
+    sub="Blurred Knife +1",
+    range={ name="Ataktos", augments={'Delay:+60','TP Bonus +1000',}},
+    ammo="Bronze Bullet",
+    head={ name="Herculean Helm", augments={'Weapon skill damage +3%','STR+14','Accuracy+8','Attack+5',}},
+    body="Laksa. Frac +2",
+    hands="Meg. Gloves +2",
+    legs="Meg. Chausses +2",
+    feet={ name="Herculean Boots", augments={'Weapon skill damage +4%','STR+9','Attack+5',}},
+    neck="Rep. Plat. Medal",
+    waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+    left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+    right_ear="Ishvara Earring",
+    left_ring="Karieyh Ring",
+    right_ring="Cornelia's Ring",
+    back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Mag. Evasion+15',}},
+}

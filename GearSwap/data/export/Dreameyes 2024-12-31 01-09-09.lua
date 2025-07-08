@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Montante +1", augments={'Path: A',}},
+    sub="Utu Grip",
+    ammo="Happy Egg",
+    head={ name="Odyssean Helm", augments={'Attack+4','Weapon skill damage +4%','Accuracy+14',}},
+    body="Heath. Cuirass +2",
+    hands={ name="Odyssean Gauntlets", augments={'Accuracy+17','Weapon skill damage +4%','Attack+5',}},
+    legs="Sakpata's Cuisses",
+    feet="Ratri Sollerets",
+    neck="Bathy Choker +1",
+    waist="Plat. Mog. Belt",
+    left_ear="Tuisto Earring",
+    right_ear="Odnowa Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Kunaji Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+}

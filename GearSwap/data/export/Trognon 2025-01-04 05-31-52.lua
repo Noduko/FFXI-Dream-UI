@@ -1,0 +1,15 @@
+sets.exported={
+    ammo="Hasty Pinion +1",
+    head="Meghanada Visor +1",
+    body="Meg. Cuirie +1",
+    hands="Meg. Gloves +1",
+    legs="Meg. Chausses +1",
+    feet="Meg. Jam. +1",
+    neck="Houyi's Gorget",
+    waist="Windbuffet Belt",
+    left_ear="Brutal Earring",
+    right_ear="Suppanomimi",
+    left_ring="Defending Ring",
+    right_ring="Epona's Ring",
+    back="Camulus's Mantle",
+}

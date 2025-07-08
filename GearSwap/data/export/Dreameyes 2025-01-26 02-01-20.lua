@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Tizona", augments={'Path: A',}},
+    sub={ name="Thibron", augments={'TP Bonus +1000',}},
+    ammo="Staunch Tathlum +1",
+    head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Carmine Cuisses +1",
+    feet={ name="Herculean Boots", augments={'"Dbl.Atk."+2','"Subtle Blow"+9','Quadruple Attack +2','Accuracy+12 Attack+12','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+    neck="Elite Royal Collar",
+    waist="Plat. Mog. Belt",
+    left_ear="Etiolation Earring",
+    right_ear="Brutal Earring",
+    left_ring="Karieyh Ring",
+    right_ring="Defending Ring",
+    back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+}

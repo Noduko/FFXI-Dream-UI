@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Montante +1", augments={'Path: A',}},
+    sub="Utu Grip",
+    ammo="Staunch Tathlum +1",
+    head={ name="Valorous Mask", augments={'Accuracy+17','Weapon skill damage +4%','STR+9','Attack+1',}},
+    body="Sakpata's Plate",
+    hands="Sakpata's Gauntlets",
+    legs="Carmine Cuisses +1",
+    feet={ name="Odyssean Greaves", augments={'"Fast Cast"+4','VIT+6','Accuracy+6',}},
+    neck="Elite Royal Collar",
+    waist="Plat. Mog. Belt",
+    left_ear="Hearty Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Karieyh Ring",
+    right_ring="Defending Ring",
+    back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+}

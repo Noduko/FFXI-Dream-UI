@@ -1,0 +1,15 @@
+sets.exported={
+    ammo="Hasty Pinion +1",
+    head="Meghanada Visor +1",
+    body="Adhemar Jacket",
+    hands="Adhemar Wristbands",
+    legs={ name="Samnuha Tights", augments={'STR+7','DEX+6',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+19','"Triple Atk."+2','Attack+10',}},
+    neck="Houyi's Gorget",
+    waist="Windbuffet Belt",
+    left_ear="Brutal Earring",
+    right_ear="Suppanomimi",
+    left_ring="Petrov Ring",
+    right_ring="Epona's Ring",
+    back="Camulus's Mantle",
+}

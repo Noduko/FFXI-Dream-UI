@@ -1,0 +1,15 @@
+sets.exported={
+    ammo="Dosis Tathlum",
+    head={ name="Herculean Helm", augments={'Weapon skill damage +3%','STR+14','Accuracy+8','Attack+5',}},
+    body={ name="Samnuha Coat", augments={'Mag. Acc.+10','"Mag.Atk.Bns."+9','"Fast Cast"+2',}},
+    hands={ name="Leyline Gloves", augments={'Accuracy+15','Mag. Acc.+15','"Mag.Atk.Bns."+15','"Fast Cast"+3',}},
+    legs="Gyve Trousers",
+    feet={ name="Herculean Boots", augments={'"Dbl.Atk."+2','"Subtle Blow"+9','Quadruple Attack +2','Accuracy+12 Attack+12','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
+    neck="Sibyl Scarf",
+    waist="Orpheus's Sash",
+    left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Cornelia's Ring",
+    right_ring="Karieyh Ring",
+    back="Solemnity Cape",
+}

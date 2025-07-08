@@ -1,0 +1,17 @@
+sets.exported={
+    main="Naegling",
+    range={ name="Ataktos", augments={'Delay:+60','TP Bonus +1000',}},
+    ammo="Bronze Bullet",
+    head="Meghanada Visor +2",
+    body="Meg. Cuirie +2",
+    hands="Meg. Gloves +2",
+    legs="Carmine Cuisses +1",
+    feet="Meg. Jam. +2",
+    neck="Elite Royal Collar",
+    waist="Null Belt",
+    left_ear="Brutal Earring",
+    right_ear="Cessance Earring",
+    left_ring="Karieyh Ring",
+    right_ring="Defending Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+5','Weapon skill damage +10%',}},
+}

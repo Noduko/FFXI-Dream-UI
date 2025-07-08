@@ -1,0 +1,15 @@
+sets.exported={
+    ammo="Hasty Pinion +1",
+    head="Meghanada Visor +1",
+    body="Meg. Cuirie +1",
+    hands="Meg. Gloves +1",
+    legs="Meg. Chausses +1",
+    feet={ name="Herculean Boots", augments={'Accuracy+19','"Triple Atk."+2','Attack+10',}},
+    neck="Sanctity Necklace",
+    waist="Windbuffet Belt",
+    left_ear="Infused Earring",
+    right_ear="Suppanomimi",
+    left_ring="Shneddick Ring",
+    right_ring="Defending Ring",
+    back="Camulus's Mantle",
+}
