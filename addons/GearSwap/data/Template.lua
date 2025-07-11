@@ -10,6 +10,10 @@ function sub_job_change(new, old)
     send_command('wait 3; input /lockstyleset 40') -- Set your lockstyle after sub job change
 end
 
+
+
+
+
 -----------------------BINDING------------------
 -- This section binds keys to specific actions or commands.
 -- For example, you can set CTRL+F1 to equip your TP Normal set or CTRL+12 to use your Warp ring.
@@ -43,6 +47,9 @@ send_command(
     'bind ^F11 input /equip L.ring "Dim. Ring (Holla)"; input /echo TELEPORT TO HOLLA IN 10 SECONDS.;wait 12; input /item "Dim. Ring (Holla)" <me>') -- Bind CTRL+F11 to equip Dim. Ring (Holla)
 
 
+
+
+    
 ---------------------
 ------- SETS --------
 ---------------------
@@ -195,8 +202,8 @@ function get_sets()
     }
 
     ----------------------- WS SETS -----------------------
-    sets.Fudo = {}
-    sets.Fudo.Normal = {
+
+    sets.Fudo = {
         ammo = "",
         head = "",
         neck = "",
@@ -212,40 +219,7 @@ function get_sets()
         back = ""
     }
 
-    sets.Fudo.Accuracy = {
-        ammo = "",
-        head = "",
-        neck = "",
-        body = "",
-        hands = "",
-        legs = "",
-        feet = "",
-        left_ear = "",
-        right_ear = "",
-        left_ring = "",
-        right_ring = "",
-        waist = "",
-        back = ""
-    }
-
-    sets.Shoha = {}
-    sets.Shoha.Normal = {
-        ammo = "",
-        head = "",
-        neck = "",
-        body = "",
-        hands = "",
-        legs = "",
-        feet = "",
-        left_ear = "",
-        right_ear = "",
-        left_ring = "",
-        right_ring = "",
-        waist = "",
-        back = ""
-    }
-
-    sets.Shoha.Accuracy = {
+    sets.Shoha = {
         ammo = "",
         head = "",
         neck = "",
@@ -296,6 +270,10 @@ function get_sets()
 
 end
 
+
+
+
+
 -----------------------
 ------- SCRIPT --------
 -----------------------
@@ -344,6 +322,11 @@ function precast(spell)
 
 end
 
+
+
+
+
+
 function aftercast(spell)
 -- This function is called after a spell or job ability has been cast so it swaps back to the appropriate Engage or Idle gear set.
     if player.status == 'Engaged' then
@@ -363,6 +346,11 @@ function aftercast(spell)
 
 end
 
+
+
+
+
+
 function status_change(new, old)
 -- This function is called when the player's status changes (e.g., from Idle to Engaged or vice versa).
 
@@ -373,6 +361,11 @@ function status_change(new, old)
         equip(sets.Idle[state.IdleMode.value])
     end
 end
+
+
+
+
+
 
 function self_command(command)
 -- This function triggers any actions based on the commands sent from the key bindings or via //gs c <message>.
@@ -446,6 +439,12 @@ function self_command(command)
     end
 end
 
+
+
+
+
+
+
 windower.register_event('tp change', function(tp)
 -- This event automatically uses a Weapon Skill when the player's TP reaches 1000 or more, if AutoWS mode is enabled (default is CTRL+F6, see the binding section).
 
@@ -462,9 +461,15 @@ end)
 
 
 
+
+
+
 -----------------------
 ------- HUD --------
 -----------------------
+
+-- This section sets up the HUD to display your current gear set, accuracy, and other information.
+-- No need to change anything here unless you want to customize the display position or text style.
 
 ----------------------- ACCURACY & SET DISPLAY HUD -----------------------
 
