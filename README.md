@@ -2,57 +2,94 @@
 
 ![Screenshot](UI%20Example.png)
 
-<h2>■ Features:</h2>
+## ■ Features:
 
-**● FFXI Hotbar**
+- **FFXI Hotbar**
 
 Addon from: SirEdeonX/Akirane
 
 Displays your spells, abilities and shortcuts, which can be used with 1, CTRL+1, Shift+1, Alt+1, etc. or clicked with mouse.
 You can swap between two different sets with a key (default: "\") and more hotbars can be added and turned horizontal or vertical.
 
-**● Enemybar2**
-Addon from: mmckee,akaden
+- **Enemybar2:**
+  <br>Addon from: mmckee,akaden
+  <br><br>Displays target HP bar with its current target and distance.
+  <br>It also shows all the monsters currently aggroed by the party.
 
-Displays target HP bar with its current target and distance.
-It also shows all the monsters currently aggroed by the party.
+- **JobHud:**
+  <br>Addon from: DreamEyes
+  <br><br>Custom HUD to display your hit accuracy %, miss and critical hit %.
+  <br>It displays your current Engage and Idle set (from your GearSwap lua) and shows whether AutoWS mode is enabled or not.
+  <br> It also displays your current roll, lucky and unlucky numbers as Corsair.
 
-**● Accuracy & Job Set HUD:**
-Custom HUD to display your hit accuracy %, miss and critical hit %.
-It also displays your current Engage and Idle set (from your GearSwap lua) and shows whether AutoWS mode is enabled or not.
+- **EquipViewer:**
+  <br>Addon from: Tako, Rubenator
+  <br><br>Displays your current gear.
 
-**● Corsair's Roll HUD:**
-Displays your current roll, lucky and unlucky numbers.
+- **Minimap (FFXIDB):**
+  <br>Displays a minimap of your current area (even if you don't own the map).
 
-**● EquipViewer:**
-Addon from: Tako, Rubenator
+- **Inventory Tracking (FindAll):**
+  <br>Addon from: Zohno
+  <br><br>Displays your current inventory count and items you want to track.
+  <br>You can also look for any items and their location with the command //findall <Item Name>".
 
-Displays your current gear.
+- **Party members list (XivParty):**
+<br>Addon from: Tylas
+<br><br>Displays the party member list with their job. Can be customised and display their buff/debuff as well.
 
-**● Minimap (FFXIDB):**
-DIsplays a minimap of your current area (even if you don't own the map).
+- **Timers:**
+<br>Displays abilities on cooldown.
 
-**● Inventory Tracking (FindAll):**
-Addon from: Zohno
+## ■ How to install:
 
-Displays your current inventory count and items you want to track.
-You can also look for any items and their location with the command //findall <Item Name>".
+- Copy all the addon folders to the Windower4\Addon\ folder.
+- Copy all the plugin files and folders to the Windower4\Plugin folder.
+- In Windower4\scripts\init.txt, add the following below the "Load plugins" section to start the addons automatically on startup:
+<pre>
+load Timers
+lua load EquipViewer
+lua load xivhotbar
+lua load xivparty
+lua load zonename
+lua load enemybar2
+</pre>
 
-**● Party members list (Trust)**
-Addon from: Tylas
+## ■ How to set up:
 
-Displays the party member list with their job. Can be customised and display their buff/debuff as well.
+These addons often have a lot of customisation options and have already been tweaked for this UI.
 
-**● Timers:**
-Displays abilities on cooldown.
+The main setting you will have to change is the position of the addons since they may not match my resolution (1920*1080) or UI Scale (x1).
 
+Below is how you can adjust the position settings inidividually. If you want to learn more about each addon, I added the links to the owner's documentation.
 
-<h2>■ How to install:</h2>
+**[FFXIV Hotbar](https://github.com/Akirane/XIVHotbar):**
+<br>File to edit: addons\XIVHotbar\data\settings.xml
+<br>Adjust position within the <Offsets> tag.
 
-Copy all the addon folders to the Windower4\Addon\ folder.
-Copy all the plugin files and folders to the Windower4\Plugin folder.
+**[Enemybar2](https://github.com/AkadenTK/enemybar2):**
+<br>File to edit: addons\enemybar2\data\settings.xml
+<br>Adjust position within the </target_bar> tag.
 
+**[JobHud](https://github.com/Noduko/ShowSet):**
+<br>File to edit: addons\JobHud\data\settings.xml
+<br>Adjust x and y position. Alternatively, you can drag the HUD in game to the desired postion and type `//jobhud save`.
 
-<h2>■ How to set up:</h2>
+**[EquipViewer](https://github.com/Windower/Lua/tree/live/addons/equipviewer):**
+<br>File to edit: addons\EquipViewer\data\settings.xml
+<br>Adjust position within the <pos> tag.
 
-WIP
+**[Minimap](https://docs.windower.net/plugins/ffxidb/):**
+<br>Adjust position in game by dragging the map to the desired position.
+
+**[FindAll (inventory tracking)](https://github.com/Windower/Lua/tree/live/addons/findAll):**
+<br>File to edit: addons\FindAll\data\settings.xml
+<br>Adjust position within the <pos> tag.
+
+**[XivParty (Party List)](https://github.com/Tylas11/XivParty):**
+<br>File to edit: addons\XivParty\data\settings.xml
+<br>Adjust position within the <pos> tag. Alternatively, type `//xivparty setup` in game to manually adjust the position and the size (use the mousewheel).
+
+**[Timers](https://docs.windower.net/plugins/timers/):**
+<br>File to edit: plugins\settings\Timers.xml
+<br>Adjust the X and Y positions within the `<RecastX>, <RecastY>, <BuffX>, <BuffX>` tags.
