@@ -16,7 +16,7 @@ You can swap between two different sets with a key (default: "\") and more hotba
   <br><br>Displays target HP bar with its current target and distance.
   <br>It also shows all the monsters currently aggroed by the party.
 
-- **JobHud:**
+- **ShowSet:**
   <br>Addon from: DreamEyes
   <br><br>Custom HUD to display your hit accuracy %, miss and critical hit %.
   <br>It displays your current Engage and Idle set (from your GearSwap lua) and shows whether AutoWS mode is enabled or not.
@@ -75,9 +75,9 @@ Below is how you can adjust the position settings inidividually. If you want to 
 <br>File to edit: addons\enemybar2\data\settings.xml
 <br>Adjust position within the </target_bar> tag.
 
-**[JobHud](https://github.com/Noduko/ShowSet):**
-<br>File to edit: addons\JobHud\data\settings.xml
-<br>Adjust x and y position. Alternatively, you can drag the HUD in game to the desired postion and type `//jobhud save`.
+**[ShowSet](https://github.com/Noduko/ShowSet):**
+<br>File to edit: addons\ShowSet\data\settings.xml
+<br>Adjust x and y position. Alternatively, you can drag the HUD in game to the desired postion and type `//showset save`.
 
 **[EquipViewer](https://github.com/Windower/Lua/tree/live/addons/equipviewer):**
 <br>File to edit: addons\EquipViewer\data\settings.xml
