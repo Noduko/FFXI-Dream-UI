@@ -81,7 +81,7 @@ function get_sets()
     state.WeaponEquipped = M{'Tizona', 'Naegling', 'Maxentius', 'Other'}
     state.AutoWS = M{'Off', 'Savage Blade', 'Expiacion'}  
 
-    update_jobset_display()
+    update_showset_display()
 
     ----------------------- WEAPONS SETS -----------------------	
     sets.Weapons = {}
@@ -117,13 +117,13 @@ function get_sets()
         body = "Hashishin Mintan +2",
         hands = "Malignance Gloves",
         legs = "Carmine Cuisses +1",
-        feet = "Malignance Boots",
+        feet = "Nyame Sollerets",
         left_ear = "Etiolation Earring",
         right_ear = "Brutal Earring",
         left_ring = "Karieyh Ring",
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         waist = "Null Belt",
-        back = {name = "Rosmerta's Cape", augments = {'DEX+20', 'Accuracy+20 Attack+20', '"Dbl.Atk."+10', 'Phys. dmg. taken-10%'}}
+        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}}
     }
 
     sets.Idle.DT = {
@@ -133,13 +133,13 @@ function get_sets()
         body = "Malignance Tabard",
         hands = "Malignance Gloves",
         legs = "Carmine Cuisses +1",
-        feet = "Malignance Boots",
+        feet = "Nyame Sollerets",
         left_ear = "Etiolation Earring",
         right_ear = "Brutal Earring",
         left_ring = "Karieyh Ring",
         right_ring = "Defending Ring",
         waist = "Platinum Moogle Belt",
-        back = {name = "Rosmerta's Cape",augments = {'DEX+20', 'Accuracy+20 Attack+20', '"Dbl.Atk."+10', 'Phys. dmg. taken-10%'}}
+        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}}
     }
 
     ----------------------- TP SETS -----------------------
@@ -157,7 +157,7 @@ function get_sets()
         left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         waist = "Sailfi Belt +1",
-        back = "Null Shawl",
+        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}},
         -- back="Aptitude mantle +1",
     }
 
@@ -166,7 +166,7 @@ function get_sets()
         head = "Malignance Chapeau",
         neck = "Null Loop",
         body = "Malignance Tabard",
-        hands = "Adhemar wristbands +1",
+        hands = "Gazu Bracelets +1",
         legs = "Malignance Tights",
         feet = "Malignance Boots",
         left_ear = "Telos Earring",
@@ -183,15 +183,15 @@ function get_sets()
         head = "Malignance Chapeau",
         neck = "Null Loop",
         body = "Malignance Tabard",
-        hands = "Malignance Gloves",
+        hands = "Gazu Bracelets +1",
         legs = "Malignance Tights",
         feet = "Malignance Boots",
         left_ear = "Telos Earring",
         right_ear = "Suppanomimi",
         right_ring = "Defending Ring",
-        left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
+        left_ring = "Epona's Ring",
         waist = "Sailfi Belt +1",
-        back = "Null Shawl",
+        back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}},
     }
 
     sets.TP.TH_Gear = {
@@ -212,9 +212,9 @@ function get_sets()
         head = "Hashishin Kavuk +2",
         neck = "Mirage Stole +1",
         body = "Assim. Jubbah +3",
-        hands = "Jhakri Cuffs +2",
+        hands = "Nyame Gauntlets",
         legs = "Luhlaza Shalwar +3",
-        feet = {name = "Herculean Boots", augments = {'Weapon skill damage +4%', 'STR+9', 'Attack+5'}},
+        feet = "Nyame Sollerets",
         waist = "Sailfi Belt +1",
         left_ear = {name = "Moonshade Earring", augments = {'Attack+4', 'TP Bonus +250'}},
         right_ear = "Ishvara Earring",
@@ -227,9 +227,9 @@ function get_sets()
         ammo = "Oshasha's Treatise",
         head = "Hashishin Kavuk +2",
         body = "Assim. Jubbah +3",
-        hands = "Jhakri Cuffs +2",
+        hands = "Nyame Gauntlets",
         legs = "Luhlaza Shalwar +3",
-        feet = {name = "Herculean Boots", augments = {'Weapon skill damage +4%', 'STR+9', 'Attack+5'}},
+        feet = "Nyame Sollerets",
         neck = "Mirage Stole +1",
         waist = "Sailfi Belt +1",
         left_ear = {name = "Moonshade Earring", augments = {'Attack+4', 'TP Bonus +250'}},
@@ -259,7 +259,7 @@ function get_sets()
         head = "Jhakri Coronal +2",
         neck = "Fotia Gorget",
         body = "Jhakri Robe +2",
-        hands = "Jhakri Cuffs +2",
+        hands = "Nyame Gauntlets",
         legs = "Jhakri Slops +2",
         feet = "Jhakri Pigaches +2",
         left_ear = {name = "Moonshade Earring", augments = {'Attack+4', 'TP Bonus +250'}},
@@ -276,7 +276,7 @@ function get_sets()
         body = "Jhakri Robe +2",
         hands = "Jhakri Cuffs +2",
         legs = "Luhlaza Shalwar +3",
-        feet = "Jhakri Pigaches +2",
+        feet = "Nyame Sollerets",
         neck = "Sibyl Scarf",
         waist = "Orpheus's Sash",
         left_ear = "Hecate's Earring",
@@ -443,6 +443,7 @@ function get_sets()
         legs = {name = "Psycloth Lappas", augments = {'MP+80', 'Mag. Acc.+15', '"Fast Cast"+7'}},
         left_ring = "Kishar Ring",
         right_ring = "Prolix Ring",
+        waist = "Witful Belt",
         back = {name = "Rosmerta's Cape", augments = {'"Fast Cast"+10'}}
     }
 
@@ -621,7 +622,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
@@ -630,7 +631,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Normal.')
         if player.status == 'Engaged' then
             equip(sets.TP.Normal)
@@ -638,7 +639,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy set' then
         state.EngageMode:set('Accuracy')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Accuracy.')
         if player.status == 'Engaged' then
             equip(sets.TP.Accuracy)
@@ -646,7 +647,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT set' then
         state.EngageMode:set('DT')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to DT.')
         if player.status == 'Engaged' then
             equip(sets.TP.DT)
@@ -654,7 +655,7 @@ function self_command(command)
 
     elseif command == 'equip TP.TH set' then
         state.EngageMode:set('TH')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Treasure Hunter.')
         if player.status == 'Engaged' then
             equip(sets.TP.TH)
@@ -662,21 +663,19 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Auto Weapon Skill %s --'):format(state.AutoWS.value))
 
     end
 
 end
 
-
-windower.register_event('tp change', function(tp)
-
-    if player.status == 'Engaged' and state.AutoWS.value ~= 'Off' and tp >= 1000 then
-        windower.send_command('input /ws "' .. state.AutoWS.value .. '" <t>')
-    end
-
-end)
+function update_showset_display()
+    
+    windower.send_command('showset idle ' .. state.IdleMode.value)
+    windower.send_command('showset engage ' .. state.EngageMode.value)
+    windower.send_command('showset autows ' .. state.AutoWS.value)
+end
 
 -------------------------
 --   BLU Spells List   --
@@ -712,180 +711,3 @@ BlueMagic_Healing = S {'Healing Breeze', 'Magic Fruit', 'Plenilune Embrace', 'Po
 
 BlueMagic_Skill = S {'Diamondhide', 'Metallic Body', 'Magic Barrier', 'Occultation', 'Atra. Libations', 'MP Drainkiss',
                      'Digest', 'Blood Saber', 'Osmosis', 'Retinal Glare', 'Sudden Lunge'}
-
-
-
-
-
-
-
-
-
-
------------------------
-------- HUD --------
------------------------
-
------------------------ ACCURACY & SET DISPLAY HUD -----------------------
-
-texts = require('texts')
-
--- Display setup
-jobset_display = texts.new({
-    pos = {x = 1420, y = 835},
-    text = {font = 'Segoe UI Emoji', size = 9.5, stroke = {width = 2, alpha = 200}},
-    flags = {draggable = true},
-    bg = {alpha = 120, red = 35, green = 55, blue = 100},
-    padding = 2,
-
-})
-
--- Accuracy tracking variables
-total_swings = 0
-total_hits = 0
-total_crits = 0
-
-
-
-res = require('resources')
-
-
--- HUD info display settings
-function update_jobset_display()
-
-    if not player or not player.main_job then return end
-
-    local idle_mode = state.IdleMode and state.IdleMode.value or "N/A"
-    local engage_mode   = state.EngageMode and state.EngageMode.value or "N/A"
-    local autows_mode = state.AutoWS and state.AutoWS.value or "N/A"
-
-
-    -- Check for specific spells and set emoji
-    local spell_emoji_map = {
-    ["Spectral Floe"] = "🔮", -- Unique spell from Magic set
-    ["Anvil Lightning"] = "🧿", -- Unique spell from Accuracy set
-    ["Amorphic Spikes"] = "🗝️", -- Uniue spell from Treasure Hunder set
-    }   
-
-    local equipped_emoji = nil
-    local blu_data = windower.ffxi.get_mjob_data()
-
-    if blu_data and blu_data.spells then
-        for _, spell_id in ipairs(blu_data.spells) do
-            local spell = res.spells[spell_id]
-            if spell then
-                local emoji = spell_emoji_map[spell.en]
-                if emoji then
-                    equipped_emoji = emoji
-                    break -- stop at first matched spell
-                end
-            end
-        end
-    end
-
-    local blu_magic_set_info = equipped_emoji or ""
-
-    local crit_percent = (total_hits > 0) and math.floor((total_crits / total_hits) * 100) or 0
-    local accuracy_percent = (total_swings > 0) and math.floor((total_hits / total_swings) * 100) or 100
-    local accuracy_info = (total_swings > 0) 
-        and string.format("🏹 %d%% ( %d | %d%% )", accuracy_percent, total_misses, crit_percent)
-        or "🏹 --                     "
-
-    local gearset_info = string.format("⚔️ %s  %s\n 🧍  %s", engage_mode, blu_magic_set_info, idle_mode)
-    local autows_info = string.format("⚙: \\cs(205,205,125)%s\\cr", autows_mode)
-
-    local text_to_display = accuracy_info .. '\n' .. gearset_info
-    if autows_mode ~= "Off" then
-        text_to_display = text_to_display .. '\n' .. autows_info
-    end
-
-    jobset_display:text(text_to_display)
-    jobset_display:show()
-
-end
-
--- Watch for State changes (IdleMode, EngageMode, AutoWS, etc.)
-function job_state_change(stateField, newValue, oldValue)
-    update_jobset_display()
-end
-
--- Track melee accuracy
-function track_melee_accuracy(action)
-    if action.actor_id ~= player.id then return end
-
-    -- Category 1 is melee, Category 2 is ranged
-    if action.category == 1 then
-        for _, target in pairs(action.targets) do
-            for _, subaction in pairs(target.actions) do
-                total_swings = total_swings + 1
-                if subaction.message == 1 or subaction.message == 67 or subaction.message == 352 then
-                    -- 1 = Hit, 67 = Critical hit, 352 = Extra hit
-                    total_hits = total_hits + 1
-                
-                    if subaction.message == 67 then -- 67 = Critical hit
-                        total_crits = total_crits + 1
-                    end
-                end
-            end
-        end
-
-        total_misses = total_swings - total_hits
-        update_jobset_display()
-    end
-end
-
--- Register the action event to track melee accuracy
-windower.register_event('action', track_melee_accuracy)
-
--- Update HUD when you log in
-windower.register_event('login', function()
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
--- Update and reset HUD when zoning (after delay)
-windower.register_event('zone change', function()
-    total_swings = 0
-    total_hits = 0
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
---Hide HUD when interacting with NPC or loading
-local jobset_display_hidden = false
-
-local function set_hud_visibility(visible)
-    if not jobset_display then return end
-    if visible and jobset_display_hidden then
-        jobset_display:show()
-        jobset_display_hidden = false
-    elseif not visible and not jobset_display_hidden then
-        jobset_display:hide()
-        jobset_display_hidden = true
-    end
-end
-
--- Shows or hides the HUD based on player status
-local function update_hud_visibility()
-    local player = windower.ffxi.get_player()
-    local is_cutscene = player and player.status == 4
-    set_hud_visibility(not is_cutscene)
-end
-
--- Event: Cutscene/menu/combat status changed
-windower.register_event('status change', update_hud_visibility)
-
--- Event: Zoning - hide HUD for safety
-windower.register_event('zone change', function()
-    set_hud_visibility(false)
-end)
-
--- Event: Login - safe to show HUD
-windower.register_event('login', function()
-    set_hud_visibility(true)
-end)
-
--- Event: Incoming text - update HUD when AzureSets is mentioned to display an emoji based on equipped spell set.
-windower.register_event('incoming text', function(original, modified, color)
-    if color == 207 and modified:find('AzureSets:') then
-        update_jobset_display()
-    end
-end)

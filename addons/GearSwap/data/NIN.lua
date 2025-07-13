@@ -52,9 +52,9 @@ include('Modes')
     state = {}
     state.IdleMode = M{'Normal', 'DT'}
     state.EngageMode = M{'Normal', 'Accuracy', 'DT', 'TH'}
-    state.AutoWS = M{'Off', 'Savage Blade', 'Expiacion'}  
+    state.AutoWS = M{'Off', 'Savage Blade'}
 
-    update_jobset_display()
+    update_showset_display()
 
     ----------------------- IDLE SETS -----------------------
     sets.Idle = {}
@@ -235,12 +235,9 @@ include('Modes')
         head = "Hashishin Kavuk +2",
         neck = "Mirage Stole +1",
         body = "Assim. Jubbah +3",
-        hands = "Jhakri Cuffs +2",
+        hands = "Nyame Gauntlets",
         legs = "Luhlaza Shalwar +3",
-        feet = {
-            name = "Herculean Boots",
-            augments = {'Weapon skill damage +4%', 'STR+9', 'Attack+5'}
-        },
+        feet = "Nyame Sollerets",
         waist = "Sailfi Belt +1",
         left_ear = {
             name = "Moonshade Earring",
@@ -435,7 +432,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
@@ -444,7 +441,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Normal.')
         if player.status == 'Engaged' then
             equip(sets.TP.Normal)
@@ -452,7 +449,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy set' then
         state.EngageMode:set('Accuracy')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Accuracy.')
         if player.status == 'Engaged' then
             equip(sets.TP.Accuracy)
@@ -460,7 +457,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT set' then
         state.EngageMode:set('DT')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to DT.')
         if player.status == 'Engaged' then
             equip(sets.TP.DT)
@@ -468,7 +465,7 @@ function self_command(command)
 
     elseif command == 'equip TP.TH set' then
         state.EngageMode:set('TH')
-        update_jobset_display()
+        update_showset_display()
         send_command('input /echo -- TP Set changed to Treasure Hunter.')
         if player.status == 'Engaged' then
             equip(sets.TP.TH)
@@ -476,159 +473,14 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Auto Weapon Skill (%s) --'):format(state.AutoWS.value))
     end
 end
 
-windower.register_event('tp change', function(tp)
-
-    if player.status == 'Engaged' and state.AutoWS.value ~= 'Off' and tp >= 1000 then
-        windower.send_command('input /ws "' .. state.AutoWS.value .. '" <t>')
-    end
-
-end)
-
-
-
-
-
-
-
-
-
-
-
-
------------------------
-------- HUD --------
------------------------
-
------------------------ ACCURACY & SET DISPLAY HUD -----------------------
-
-texts = require('texts')
-
--- Display setup
-jobset_display = texts.new({
-    pos = {x = 1420, y = 835},
-    text = {font = 'Segoe UI Emoji', size = 9.5, stroke = {width = 2, alpha = 200}},
-    flags = {draggable = true},
-    bg = {alpha = 100, red = 0, green = 0, blue = 5},
-    padding = 2,
-
-})
-
--- Accuracy tracking variables
-total_swings = 0
-total_hits = 0
-total_crits = 0
-
-
--- HUD display settings
-function update_jobset_display()
-    if not player or not player.main_job then return end
-
-    local idle_mode = state.IdleMode and state.IdleMode.value or "N/A"
-    local engage_mode   = state.EngageMode and state.EngageMode.value or "N/A"
-    local autows_mode = state.AutoWS and state.AutoWS.value or "N/A"
+function update_showset_display()
     
-     local crit_percent = (total_hits > 0) and math.floor((total_crits / total_hits) * 100) or 0
-    local accuracy_percent = (total_swings > 0) and math.floor((total_hits / total_swings) * 100) or 100
-    local accuracy_info = (total_swings > 0) 
-        and string.format("🏹 %d%% ( %d | %d%% )", accuracy_percent, total_misses, crit_percent)
-        or "🏹 --                     "
-
-    local gearset_info = string.format("⚔️ %s\n 🧍  %s", engage_mode, idle_mode)
-    local autows_info = string.format("⚙: \\cs(205,205,125)%s\\cr", autows_mode)
-
-    local text_to_display = accuracy_info .. '\n' .. gearset_info
-    if autows_mode ~= "Off" then
-        text_to_display = text_to_display .. '\n' .. autows_info
-    end
-
-    jobset_display:text(text_to_display)
-    jobset_display:show()
-
+    windower.send_command('showset idle ' .. state.IdleMode.value)
+    windower.send_command('showset engage ' .. state.EngageMode.value)
+    windower.send_command('showset autows ' .. state.AutoWS.value)
 end
-
--- Watch for State changes (IdleMode, EngageMode, AutoWS, etc.)
-function job_state_change(stateField, newValue, oldValue)
-    update_jobset_display()
-end
-
--- Track melee accuracy
-function track_melee_accuracy(action)
-    if action.actor_id ~= player.id then return end
-
-    -- Category 1 is melee, Category 2 is ranged
-    if action.category == 1 then
-        for _, target in pairs(action.targets) do
-            for _, subaction in pairs(target.actions) do
-                total_swings = total_swings + 1
-                 if subaction.message == 1 or subaction.message == 67 or subaction.message == 352 then
-                    -- 1 = Hit, 67 = Critical hit, 352 = Extra hit
-                    total_hits = total_hits + 1
-                
-                    if subaction.message == 67 then -- 67 = Critical hit
-                        total_crits = total_crits + 1
-                    end
-                end
-            end
-        end
-
-        total_misses = total_swings - total_hits
-        update_jobset_display()
-    end
-end
-
--- Register the action event to track melee accuracy
-windower.register_event('action', track_melee_accuracy)
-
-
--- Update HUD when you log in
-windower.register_event('login', function()
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
-
--- Update and reset HUD when zoning (after delay)
-windower.register_event('zone change', function()
-    total_swings = 0
-    total_hits = 0
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
---Hide HUD when interacting with NPC or loading
-local jobset_display_hidden = false
-
--- Safely set HUD visibility
-local function set_hud_visibility(visible)
-    if not jobset_display then return end
-    if visible and jobset_display_hidden then
-        jobset_display:show()
-        jobset_display_hidden = false
-    elseif not visible and not jobset_display_hidden then
-        jobset_display:hide()
-        jobset_display_hidden = true
-    end
-end
-
--- Shows or hides the HUD based on player status
-local function update_hud_visibility()
-    local player = windower.ffxi.get_player()
-    local is_cutscene = player and player.status == 4
-    set_hud_visibility(not is_cutscene)
-end
-
--- Event: Cutscene/menu/combat status changed
-windower.register_event('status change', update_hud_visibility)
-
--- Event: Zoning - hide HUD for safety
-windower.register_event('zone change', function()
-    set_hud_visibility(false)
-end)
-
--- Event: Login - safe to show HUD
-windower.register_event('login', function()
-    set_hud_visibility(true)
-end)

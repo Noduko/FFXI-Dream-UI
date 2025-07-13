@@ -64,7 +64,7 @@ function get_sets()
             else state.AutoWS = M{'Off'}
         end
 
-    update_jobset_display()
+    update_showset_display()
 
     ----------------------- WEAPONS SETS -----------------------	
 
@@ -76,7 +76,7 @@ function get_sets()
 
     sets.Weapons.NaeglingKnife = {
         main = "Naegling",
-        sub = "Blurred Knife +1"
+        sub = "Gleti's Knife"
     }
 
     sets.Weapons.ShiningOne = {
@@ -342,7 +342,7 @@ function get_sets()
         body = "Pumm. Lorica +3",
         hands = "Sakpata's Gauntlets",
         legs = "Pumm. Cuisses +3",
-        feet = "Sulev. Leggings +2",
+        feet = "Nyame Sollerets",
         neck = "Warrior's Bead Necklace +1",
         waist = "Sailfi Belt +1",
         left_ear = {
@@ -364,7 +364,7 @@ function get_sets()
         body = "Pumm. Lorica +3",
         hands = "Sakpata's Gauntlets",
         legs = "Pumm. Cuisses +3",
-        feet = "Sulev. Leggings +2",
+        feet= "Nyame Sollerets",
         neck = "Warrior's Bead Necklace +1",
         waist = "Sailfi Belt +1",
         left_ear = {
@@ -374,10 +374,23 @@ function get_sets()
         right_ear = "Thrud Earring",
         left_ring = "Begrudging Ring",
         right_ring = "Cornelia's Ring",
-        back = {
-            name = "Cichol's Mantle",
-            augments = {'STR+20', 'Accuracy+20 Attack+20', 'STR+10', 'Weapon skill damage +10%', 'Damage taken-5%'}
-        }
+        back = { name = "Cichol's Mantle", augments = {'STR+20', 'Accuracy+20 Attack+20', 'STR+10', 'Weapon skill damage +10%', 'Damage taken-5%'}}
+    }
+
+    sets.WS.Judgment = {
+        ammo="Knobkierrie",
+        head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+        body="Pumm. Lorica +3",
+        hands="Sakpata's Gauntlets",
+        legs="Pumm. Cuisses +3",
+        feet= "Nyame Sollerets",
+        neck={ name="War. Beads +1", augments={'Path: A',}},
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250',}},
+        right_ear="Thrud Earring",
+        left_ring="Karieyh Ring",
+        right_ring="Cornelia's Ring",
+        back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Damage taken-5%',}},
     }
 
     sets.WS.Resolution = {
@@ -389,20 +402,11 @@ function get_sets()
         feet = "Sulev. Leggings +2",
         neck = "Fotia Gorget",
         waist = "Fotia Belt",
-        left_ear = {
-            name = "Moonshade Earring",
-            augments = {'Attack+4', 'TP Bonus +250'}
-        },
-        right_ear = {
-            name = "Boii Earring",
-            augments = {'System: 1 ID: 1676 Val: 0', 'Accuracy+8', 'Mag. Acc.+8'}
-        },
+        left_ear = { name = "Moonshade Earring", augments = {'Attack+4', 'TP Bonus +250'}   },
+        right_ear = { name = "Boii Earring", augments = {'System: 1 ID: 1676 Val: 0', 'Accuracy+8', 'Mag. Acc.+8'}},
         left_ring = "Niqmaddu Ring",
         right_ring = "Petrov Ring",
-        back = {
-            name = "Cichol's Mantle",
-            augments = {'DEX+20', 'Accuracy+20 Attack+20', 'Accuracy+10', '"Dbl.Atk."+10', 'Damage taken-5%'}
-        }
+        back = { name = "Cichol's Mantle", augments = {'DEX+20', 'Accuracy+20 Attack+20', 'Accuracy+10', '"Dbl.Atk."+10', 'Damage taken-5%'}}
     }
 
     sets.WS.Shockwave = {
@@ -414,17 +418,11 @@ function get_sets()
         feet = "Sulev. Leggings +2",
         neck = "Fotia Gorget",
         waist = "Fotia Belt",
-        left_ear = {
-            name = "Moonshade Earring",
-            augments = {'Attack+4', 'TP Bonus +250'}
-        },
+        left_ear = {name = "Moonshade Earring",augments = {'Attack+4', 'TP Bonus +250'}},
         right_ear = "Ishvara Earring",
         left_ring = "Niqmaddu Ring",
         right_ring = "Cornelia's Ring",
-        back = {
-            name = "Cichol's Mantle",
-            augments = {'STR+20', 'Accuracy+20 Attack+20', 'STR+10', 'Weapon skill damage +10%', 'Damage taken-5%'}
-        }
+        back = {name = "Cichol's Mantle",augments = {'STR+20', 'Accuracy+20 Attack+20', 'STR+10', 'Weapon skill damage +10%', 'Damage taken-5%'}}
     }
 
     ----------------------- JOB ABILITY SETS -----------------------
@@ -474,6 +472,9 @@ function precast(spell)
 
         elseif spell.english == 'Impulse Drive' then
             equip(sets.WS.ImpulseDrive)
+
+        elseif spell.english == 'Judgment' then
+            equip(sets.WS.Judgment)
 
         elseif spell.english == 'Resolution' then
             equip(sets.WS.Resolution)
@@ -608,7 +609,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Normal' then
         state.EngageMode:set('Normal')
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -616,7 +617,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy' then
         state.EngageMode:set('Accuracy')
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -624,7 +625,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT' then
         state.EngageMode:set('DT')
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -642,7 +643,7 @@ function self_command(command)
                 state.EngageMode:set('TH')
         end
         
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -650,7 +651,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
@@ -659,162 +660,15 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_jobset_display()
+        update_showset_display()
         windower.chat.input(('/echo -- Auto Weapon Skill %s --'):format(state.AutoWS.value))
     end
 
 end
 
-windower.register_event('tp change', function(tp)
-
-    if player.status == 'Engaged' and state.AutoWS.value ~= 'Off' and tp >= 1000 then
-        windower.send_command('input /ws "' .. state.AutoWS.value .. '" <t>')
-    end
-
-end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
------------------------
-------- HUD --------
------------------------
-
------------------------ ACCURACY & SET DISPLAY HUD -----------------------
-
-texts = require('texts')
-
--- Display setup
-jobset_display = texts.new({
-    pos = {x = 1420, y = 835},
-    text = {font = 'Segoe UI Emoji', size = 9.5, stroke = {width = 2, alpha = 200}},
-    flags = {draggable = true},
-    bg = {alpha = 130, red = 60, green = 90, blue = 130},
-    padding = 2,
-
-})
-
--- Accuracy tracking variables
-total_swings = 0
-total_hits = 0
-total_crits = 0
-
-
--- HUD display settings
-function update_jobset_display()
-    if not player or not player.main_job then return end
+function update_showset_display()
     
-    local idle_mode = state.IdleMode and state.IdleMode.value or "N/A"
-    local engage_mode   = state.EngageMode and state.EngageMode.value or "N/A"
-    local autows_mode = state.AutoWS and state.AutoWS.value or "N/A"
-    
-     local crit_percent = (total_hits > 0) and math.floor((total_crits / total_hits) * 100) or 0
-    local accuracy_percent = (total_swings > 0) and math.floor((total_hits / total_swings) * 100) or 100
-    local accuracy_info = (total_swings > 0) 
-        and string.format("🏹 %d%% ( %d | %d%% )", accuracy_percent, total_misses, crit_percent)
-        or "🏹 --                     "
-
-    local gearset_info = string.format("⚔️ %s\n 🧍  %s", engage_mode, idle_mode)
-    local autows_info = string.format("⚙: \\cs(205,205,125)%s\\cr", autows_mode)
-
-    local text_to_display = accuracy_info .. '\n' .. gearset_info
-    if autows_mode ~= "Off" then
-        text_to_display = text_to_display .. '\n' .. autows_info
-    end
-
-    jobset_display:text(text_to_display)
-    jobset_display:show()
-
+    windower.send_command('showset idle ' .. state.IdleMode.value)
+    windower.send_command('showset engage ' .. state.EngageMode.value)
+    windower.send_command('showset autows ' .. state.AutoWS.value)
 end
-
--- Watch for State changes (IdleMode, EngageMode, AutoWS, etc.)
-function job_state_change(stateField, newValue, oldValue)
-    update_jobset_display()
-end
-
--- Track melee accuracy
-function track_melee_accuracy(action)
-    if action.actor_id ~= player.id then return end
-
-    -- Category 1 is melee, Category 2 is ranged
-    if action.category == 1 then
-        for _, target in pairs(action.targets) do
-            for _, subaction in pairs(target.actions) do
-                total_swings = total_swings + 1
-                 if subaction.message == 1 or subaction.message == 67 or subaction.message == 352 then
-                    -- 1 = Hit, 67 = Critical hit, 352 = Extra hit
-                    total_hits = total_hits + 1
-                
-                    if subaction.message == 67 then -- 67 = Critical hit
-                        total_crits = total_crits + 1
-                    end
-                end
-            end
-        end
-
-        total_misses = total_swings - total_hits
-        update_jobset_display()
-    end
-end
-
--- Register the action event to track melee accuracy
-windower.register_event('action', track_melee_accuracy)
-
-
--- Update HUD when you log in
-windower.register_event('login', function()
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
-
--- Update and reset HUD when zoning (after delay)
-windower.register_event('zone change', function()
-    total_swings = 0
-    total_hits = 0
-    coroutine.schedule(update_jobset_display, 3)
-end)
-
---Hide HUD when interacting with NPC or loading
-local jobset_display_hidden = false
-
--- Safely set HUD visibility
-local function set_hud_visibility(visible)
-    if not jobset_display then return end
-    if visible and jobset_display_hidden then
-        jobset_display:show()
-        jobset_display_hidden = false
-    elseif not visible and not jobset_display_hidden then
-        jobset_display:hide()
-        jobset_display_hidden = true
-    end
-end
-
--- Shows or hides the HUD based on player status
-local function update_hud_visibility()
-    local player = windower.ffxi.get_player()
-    local is_cutscene = player and player.status == 4
-    set_hud_visibility(not is_cutscene)
-end
-
--- Event: Cutscene/menu/combat status changed
-windower.register_event('status change', update_hud_visibility)
-
--- Event: Zoning - hide HUD for safety
-windower.register_event('zone change', function()
-    set_hud_visibility(false)
-end)
-
--- Event: Login - safe to show HUD
-windower.register_event('login', function()
-    set_hud_visibility(true)
-end)
