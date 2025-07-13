@@ -41,6 +41,10 @@ You can swap between two different sets with a key (default: "\") and more hotba
 - **Timers:**
 <br>Displays abilities on cooldown.
 
+- **ZoneName:**
+<br>Addon from: onimitch
+<br>Displays the name of the area upon zoning.
+
 ## ■ How to install:
 
 - Copy all the addon folders to the Windower4\Addon\ folder.
@@ -93,3 +97,7 @@ Below is how you can adjust the position settings inidividually. If you want to 
 **[Timers](https://docs.windower.net/plugins/timers/):**
 <br>File to edit: plugins\settings\Timers.xml
 <br>Adjust the X and Y positions within the `<RecastX>, <RecastY>, <BuffX>, <BuffX>` tags.
+
+**[ZoneName](https://github.com/onimitch/ffxi-zonename):**
+<br>File to edit: addons\zonename\data\settings.xml
+<br>Adjust position within the <pos> tag.
