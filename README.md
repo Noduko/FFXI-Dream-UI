@@ -57,6 +57,7 @@ lua load xivhotbar
 lua load xivparty
 lua load zonename
 lua load enemybar2
+lua load showset
 </pre>
 
 ## ■ How to set up:
