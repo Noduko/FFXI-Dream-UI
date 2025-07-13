@@ -101,3 +101,14 @@ Below is how you can adjust the position settings inidividually. If you want to 
 **[ZoneName](https://github.com/onimitch/ffxi-zonename):**
 <br>File to edit: addons\zonename\data\settings.xml
 <br>Adjust position within the <pos> tag.
+
+## ■ Bonus - GearSwap templates:
+
+If you wish you use GearSwap to automatically swap your gear when using abilities/weapon skills or add custom bindings etc., I've added my own lua for my current jobs AND a template file you can use to make your own (with instructions in the code so you know what to change and how it works). My lua is meant to be easy to use and is not as granular as some more advanced lua.
+
+GearSwap lua files are located in `Addons\GearSwap\Data\`
+
+If you want to use it, make a copy of the template.lua file and name it with your job (e.g. THF, NIN, etc.). Then add all your gear for each set.
+
+**Tip:**  
+You can equip your set in game, then type `//gs export` to automatically export your current gear (saved in GearSwap\data\export) so you can copy/paste the set to your GearSwap lua (quicker than adding each item one by one).
