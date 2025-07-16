@@ -63,7 +63,7 @@ function get_sets()
     state.EngageMode = M{'Normal', 'Accuracy', 'DT', 'TH', 'SB'}
     state.AutoWS = M{'Off', 'Torcleaver'}
     
-    update_showset_display()
+    update_infohud_display()
 
     ----------------------- WEAPONS SETS -----------------------	
 
@@ -152,7 +152,7 @@ function get_sets()
         feet = "Flam. Gambieras +2",
         neck = "Null Loop",
         waist = "Ioskeha Belt +1",
-        left_ear = "Schere Earring",
+        left_ear = "Cessance Earring",
         right_ear = "Telos Earring",
         left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
@@ -165,11 +165,11 @@ function get_sets()
         body = "Sakpata's Plate",
         hands = "Sakpata's Gauntlets",
         legs = "Sakpata's Cuisses",
-        feet = "Flam. Gambieras +2",
+        feet = "Sakpata's Leggings",
         -- neck = "Elite Royal Collar",
         neck = "Abyssal Beads +1",
         waist = "Ioskeha Belt +1",
-        left_ear = "Schere Earring",
+        left_ear = "Cessance Earring",
         right_ear = "Brutal Earring",
         left_ring = "Niqmaddu Ring",
         right_ring = "Defending Ring",
@@ -565,7 +565,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Normal' then
         state.EngageMode:set('Normal')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -573,7 +573,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy' then
         state.EngageMode:set('Accuracy')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -581,7 +581,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT' then
         state.EngageMode:set('DT')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -599,7 +599,7 @@ function self_command(command)
                 state.EngageMode:set('TH')
         end
         
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -607,7 +607,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle' then
         state.IdleMode:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
@@ -616,14 +616,14 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Auto Weapon Skill %s --'):format(state.AutoWS.value))
     end
 end
 
-function update_showset_display()
+function update_infohud_display()
 
-    windower.send_command('showset idle ' .. state.IdleMode.value)
-    windower.send_command('showset engage ' .. state.EngageMode.value)
-    windower.send_command('showset autows ' .. state.AutoWS.value)
+    windower.send_command('infohud idle ' .. state.IdleMode.value)
+    windower.send_command('infohud engage ' .. state.EngageMode.value)
+    windower.send_command('infohud autows ' .. state.AutoWS.value)
 end
