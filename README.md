@@ -66,48 +66,46 @@ The main setting you will have to change is the position of the addons since the
 
 Below is how you can adjust the position settings inidividually. If you want to learn more about each addon, I added the links to the owner's documentation.
 
-**[FFXIV Hotbar](https://github.com/Akirane/XIVHotbar):**
-<br>File to edit: addons\XIVHotbar\data\settings.xml
-<br>Adjust position within the <Offsets> tag.
+| **Addon** | **Instruction** |
+|---|---|
+| **[FFXIV Hotbar](https://github.com/Akirane/XIVHotbar)** | • Open `addons\XIVHotbar\data\settings.xml`<br>• Adjust position inside the `<Offsets>` tag. |
+| **[Enemybar2](https://github.com/AkadenTK/enemybar2)** | • Open `addons\enemybar2\data\settings.xml`<br>• Adjust position inside the `</target_bar>` tag. |
+| **[InfoHUD](https://github.com/Noduko/InfoHUD)** | • Open `addons\InfoHUD\data\settings.xml`<br>• Adjust `x` and `y` positions or drag HUD in-game and type `//infohud save`. |
+| **[EquipViewer](https://github.com/Windower/Lua/tree/live/addons/equipviewer)** | • Open `addons\EquipViewer\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
+| **[Minimap](https://docs.windower.net/plugins/ffxidb/)** | • Adjust position in-game by dragging the map to your preferred location. |
+| **[FindAll (Inventory Tracking)](https://github.com/Windower/Lua/tree/live/addons/findAll)** | • Open `addons\FindAll\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
+| **[XivParty (Party List)](https://github.com/Tylas11/XivParty)** | • Open `addons\XivParty\data\settings.xml`<br>• Adjust position inside the `<pos>` tag or type `//xivparty setup` in-game to move/resize with the mousewheel. |
+| **[Timers](https://docs.windower.net/plugins/timers/)** | • Open `plugins\settings\Timers.xml`<br>• Adjust X/Y positions in `<RecastX>, <RecastY>, <BuffX>, <BuffY>` tags. |
+| **[ZoneName](https://github.com/onimitch/ffxi-zonename)** | • Open `addons\zonename\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
 
-**[Enemybar2](https://github.com/AkadenTK/enemybar2):**
-<br>File to edit: addons\enemybar2\data\settings.xml
-<br>Adjust position within the </target_bar> tag.
 
-**[InfoHUD](https://github.com/Noduko/InfoHUD):**
-<br>File to edit: addons\InfoHUD\data\settings.xml
-<br>Adjust x and y position. Alternatively, you can drag the HUD in game to the desired postion and type `//infohud save`.
-
-**[EquipViewer](https://github.com/Windower/Lua/tree/live/addons/equipviewer):**
-<br>File to edit: addons\EquipViewer\data\settings.xml
-<br>Adjust position within the <pos> tag.
-
-**[Minimap](https://docs.windower.net/plugins/ffxidb/):**
-<br>Adjust position in game by dragging the map to the desired position.
-
-**[FindAll (inventory tracking)](https://github.com/Windower/Lua/tree/live/addons/findAll):**
-<br>File to edit: addons\FindAll\data\settings.xml
-<br>Adjust position within the <pos> tag.
-
-**[XivParty (Party List)](https://github.com/Tylas11/XivParty):**
-<br>File to edit: addons\XivParty\data\settings.xml
-<br>Adjust position within the <pos> tag. Alternatively, type `//xivparty setup` in game to manually adjust the position and the size (use the mousewheel).
-
-**[Timers](https://docs.windower.net/plugins/timers/):**
-<br>File to edit: plugins\settings\Timers.xml
-<br>Adjust the X and Y positions within the `<RecastX>, <RecastY>, <BuffX>, <BuffX>` tags.
-
-**[ZoneName](https://github.com/onimitch/ffxi-zonename):**
-<br>File to edit: addons\zonename\data\settings.xml
-<br>Adjust position within the <pos> tag.
 
 ## ■ Bonus - GearSwap templates:
 
-If you wish you use GearSwap to automatically swap your gear when using abilities/weapon skills or add custom bindings etc., I've added my own lua for my current jobs AND a template file you can use to make your own (with instructions in the code so you know what to change and how it works). My lua is meant to be easy to use and is not as granular as some more advanced lua.
+If you'd like to use GearSwap to automatically swap your gear when using abilities/weapon skills or add custom bindings etc., I've added my own lua for my current jobs AND a template file you can use to make your own (with instructions in the code).  
+My lua is meant to be easy to use and is not as granular as some more advanced lua.
 
 GearSwap lua files are located in `Addons\GearSwap\Data\`
 
 If you want to use it, make a copy of the template.lua file and name it with your job (e.g. THF, NIN, etc.). Then add all your gear for each set.
+
+My GearSwap lua stucture:
+<pre>
+1. Macro Book selection & Lockstyle
+2. Key Bindings
+   ↳ JA / Gear Swap / Utility
+3. Gear Sets
+   ↳ Weapon Sets
+   ↳ Idle Sets
+   ↳ TP (Engaged) Sets
+   ↳ WS Sets
+   ↳ JA Sets
+   ↳ Item Sets
+4. Core GearSwap Functions
+   ↳ precast / aftercast / status_change
+5. Self Commands (Hotkey Actions)
+6. InfoHUD Updates (from the addon InfoHUD)
+</pre>
 
 **Tip:**  
 You can equip your set in game, then type `//gs export` to automatically export your current gear (saved in GearSwap\data\export) so you can copy/paste the set to your GearSwap lua (quicker than adding each item one by one).
