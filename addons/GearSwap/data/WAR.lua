@@ -64,7 +64,7 @@ function get_sets()
             else state.AutoWS = M{'Off'}
         end
 
-    update_showset_display()
+    update_infohud_display()
 
     ----------------------- WEAPONS SETS -----------------------	
 
@@ -609,7 +609,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Normal' then
         state.EngageMode:set('Normal')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -617,7 +617,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy' then
         state.EngageMode:set('Accuracy')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -625,7 +625,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT' then
         state.EngageMode:set('DT')
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
@@ -643,7 +643,7 @@ function self_command(command)
                 state.EngageMode:set('TH')
         end
         
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
         if player.status == 'Engaged' then
             equip(sets.TP[state.EngageMode.value])
@@ -651,7 +651,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
@@ -660,15 +660,15 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Auto Weapon Skill %s --'):format(state.AutoWS.value))
     end
 
 end
 
-function update_showset_display()
+function update_infohud_display()
     
-    windower.send_command('showset idle ' .. state.IdleMode.value)
-    windower.send_command('showset engage ' .. state.EngageMode.value)
-    windower.send_command('showset autows ' .. state.AutoWS.value)
+    windower.send_command('infohud idle ' .. state.IdleMode.value)
+    windower.send_command('infohud engage ' .. state.EngageMode.value)
+    windower.send_command('infohud autows ' .. state.AutoWS.value)
 end

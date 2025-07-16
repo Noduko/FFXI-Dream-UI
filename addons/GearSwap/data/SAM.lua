@@ -57,7 +57,7 @@ function get_sets()
     state.WSAccuracyMode = M{'Normal', 'Accuracy'}
     state.AutoWS = M{'Off', 'Tachi: Fudo', 'Tachi: Shoha'} 
 
-    update_showset_display()
+    update_infohud_display()
 
     ----------------------- WEAPONS SETS -----------------------	
     sets.Weapons = {}
@@ -107,8 +107,8 @@ function get_sets()
     sets.Idle.DT = {
         ammo = "Staunch Tathlum +1",
         head = "Crepuscular Helm",
-        neck = "Elite Royal Collar",
-        -- neck = "Samurai's Nodowa +2",
+        -- neck = "Elite Royal Collar",
+        neck = "Samurai's Nodowa +2",
         body = "Kasuga Domaru +2",
         hands = "Tatenashi gote +1",
         right_ring = "Defending Ring",
@@ -441,7 +441,7 @@ function self_command(command)
 
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
-        update_showset_display()
+        update_infohud_display()
 
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
          if player.status ~= 'Engaged' then
@@ -451,12 +451,12 @@ function self_command(command)
 
     elseif command == 'toggle WS Accuracy set' then
         state.WSAccuracyMode:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Weapon Skill Accuracy Set changed to %s --'):format(state.WSAccuracyMode.value))
 
     elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
-        update_showset_display()
+        update_infohud_display()
         send_command('input /echo -- TP Set changed to Normal.')
         if player.status == 'Engaged' then
             equip(sets.TP.Normal)
@@ -464,7 +464,7 @@ function self_command(command)
 
     elseif command == 'equip TP.Accuracy set' then
         state.EngageMode:set('Accuracy')
-        update_showset_display()
+        update_infohud_display()
         send_command('input /echo -- TP Set changed to Accuracy.')
         if player.status == 'Engaged' then
             equip(sets.TP.Accuracy)
@@ -472,7 +472,7 @@ function self_command(command)
 
     elseif command == 'equip TP.DT set' then
         state.EngageMode:set('DT')
-        update_showset_display()
+        update_infohud_display()
         send_command('input /echo -- TP Set changed to DT.')
         if player.status == 'Engaged' then
             equip(sets.TP.DT)
@@ -480,7 +480,7 @@ function self_command(command)
 
     elseif command == 'equip TP.TH set' then
         state.EngageMode:set('TH')
-        update_showset_display()
+        update_infohud_display()
         send_command('input /echo -- TP Set changed to Treasure Hunter.')
         if player.status == 'Engaged' then
             equip(sets.TP.TH)
@@ -488,15 +488,16 @@ function self_command(command)
 
     elseif command == 'toggle AutoWS' then
         state.AutoWS:cycle()
-        update_showset_display()
+        update_infohud_display()
         windower.chat.input(('/echo -- Auto Weapon Skill %s --'):format(state.AutoWS.value))
     end
 end
 
-function update_showset_display()
+function update_infohud_display()
     
-    windower.send_command('showset idle ' .. state.IdleMode.value)
-    windower.send_command('showset engage ' .. state.EngageMode.value)
-    windower.send_command('showset wsaccuracy ' .. state.WSAccuracyMode.value)
-    windower.send_command('showset autows ' .. state.AutoWS.value)
+    windower.send_command('infohud idle ' .. state.IdleMode.value)
+    windower.send_command('infohud engage ' .. state.EngageMode.value)
+    windower.send_command('infohud wsaccuracy ' .. state.WSAccuracyMode.value)
+    windower.send_command('infohud autows ' .. state.AutoWS.value)
+
 end
