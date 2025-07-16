@@ -5,11 +5,9 @@
 ## ■ Features:
 
 - **FFXI Hotbar**
-
-Addon from: SirEdeonX/Akirane
-
-Displays your spells, abilities and shortcuts, which can be used with 1, CTRL+1, Shift+1, Alt+1, etc. or clicked with mouse.
-You can swap between two different sets with a key (default: "\") and more hotbars can be added and turned horizontal or vertical.
+<br>Addon from: SirEdeonX/Akirane
+<br><br>Displays your spells, abilities and shortcuts, which can be used with 1, CTRL+1, Shift+1, Alt+1, etc. or clicked with mouse.
+<br>You can swap between two different sets with a key (default: "\") and more hotbars can be added and turned horizontal or vertical.
 
 - **Enemybar2:**
   <br>Addon from: mmckee,akaden
