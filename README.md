@@ -45,7 +45,8 @@
 
 ## ■ How to install:
 
-- Copy all the addon folders from this repository ("<Code> button" > Download Zip) to the Windower4\Addon\ folder.
+- Download the folders from this repository ("<Code> button" > Download Zip).
+- Copy all the addon folders from  to the Windower4\Addon\ folder.
 - Copy all the plugin files and folders to the Windower4\Plugin folder.
 - In Windower4\scripts\init.txt, add the following below the "Load plugins" section to start the addons automatically on startup:
 <pre>
