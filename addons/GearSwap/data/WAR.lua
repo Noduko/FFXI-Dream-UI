@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 140
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 2')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 140')
-
-function sub_job_change(new, old)
-    send_command('wait 4; input /lockstyleset 140')
-end
 
 -----------------------BINDING------------------
 
@@ -17,9 +16,9 @@ send_command('bind !numpad3 input /ja "Defender" <me>')
 
 -- GEAR--
 
-send_command('bind ^f1 gs c equip TP.Normal')
-send_command('bind ^f2 gs c equip TP.Accuracy')
-send_command('bind ^f3 gs c equip TP.DT')
+send_command('bind ^f1 gs c equip TP.Normal set')
+send_command('bind ^f2 gs c equip TP.Accuracy set')
+send_command('bind ^f3 gs c equip TP.DT set')
 send_command('bind ^f4 gs c toggle TP.Others')
 send_command('bind ^f5 gs c toggle Idle set')
 send_command('bind ^f6 gs c toggle AutoWS')
@@ -560,6 +559,10 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 3; input /lockstyleset ' .. lockstyle)
+end
+
 function self_command(command)
 
     if command == 'equip weapon naegling' then
@@ -607,7 +610,7 @@ function self_command(command)
             send_command('input /echo -- TP Set changed to Fencer.')
         end
 
-    elseif command == 'equip TP.Normal' then
+    elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -615,7 +618,7 @@ function self_command(command)
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
         end
 
-    elseif command == 'equip TP.Accuracy' then
+    elseif command == 'equip TP.Accuracy set' then
         state.EngageMode:set('Accuracy')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -623,7 +626,7 @@ function self_command(command)
             equip(sets.TP[state.Stance.value][state.EngageMode.value])
         end
 
-    elseif command == 'equip TP.DT' then
+    elseif command == 'equip TP.DT set' then
         state.EngageMode:set('DT')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -655,7 +658,15 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 140')
+            send_command('@input /lockstyleset ' .. lockstyle)
+        end
+
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
         end
 
     elseif command == 'toggle AutoWS' then

@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 40
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 2')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 40')
-
-function sub_job_change(new, old)
-    send_command('wait 3; input /lockstyleset 40')
-end
 
 -----------------------BINDING------------------
 
@@ -41,6 +40,8 @@ send_command('bind !numpad/ input /item "Grape Daifuku" <me>')
 send_command('bind !numpad- input /sack')
 send_command('bind !numpad+ input /attack <bt>')
 send_command('bind !numpad. input /mount chocobo')
+
+
 
 
 ---------------------
@@ -107,8 +108,7 @@ function get_sets()
     sets.Idle.DT = {
         ammo = "Staunch Tathlum +1",
         head = "Crepuscular Helm",
-        -- neck = "Elite Royal Collar",
-        neck = "Samurai's Nodowa +2",
+        neck = "Elite Royal Collar",
         body = "Kasuga Domaru +2",
         hands = "Tatenashi gote +1",
         right_ring = "Defending Ring",
@@ -134,7 +134,7 @@ function get_sets()
             augments = {'STR+10', 'DEX+10', 'Accuracy+15'}
         },
         left_ear = "Schere Earring",
-        right_ear = "Brutal Earring",
+        right_ear = "Dedition Earring",
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         left_ring = "Niqmaddu Ring",
         waist = "Ioskeha Belt +1",
@@ -166,7 +166,7 @@ function get_sets()
         hands = "Tatenashi gote +1",
         legs = "Kasuga Haidate +2",
         feet = "Wakido Sune-Ate +3",
-        left_ear = "Cessance Earring",
+        left_ear = "Dedition Earring",
         right_ear = "Brutal Earring",
         right_ring = "Defending Ring",
         left_ring = "Niqmaddu Ring",
@@ -415,6 +415,10 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 3; input /lockstyleset ' .. lockstyle)
+end
+
 
 function self_command(command)
 
@@ -442,11 +446,18 @@ function self_command(command)
     elseif command == 'toggle Idle set' then
         state.IdleMode:cycle()
         update_infohud_display()
-
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
          if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 40')
+            send_command('@input /lockstyleset ' .. lockstyle)
+        end
+
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
         end
 
     elseif command == 'toggle WS Accuracy set' then

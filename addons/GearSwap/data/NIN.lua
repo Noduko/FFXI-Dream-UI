@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 80
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 5')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 80')
-
-function sub_job_change(new, old)
-    send_command('wait 2; input /lockstyleset 80')
-end
 
 -----------------------BINDING------------------
 
@@ -38,6 +37,7 @@ send_command('bind !numpad/ input /item "Grape Daifuku" <me>')
 send_command('bind !numpad- input /sack')
 send_command('bind !numpad. input /mount chocobo')
 send_command('bind !numpad+ input /attack <bt>')
+
 
 
 
@@ -393,6 +393,10 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 3; input /lockstyleset ' .. lockstyle)
+end
+
 function self_command(command)
 
     if command == 'equip weapon Tauret' then
@@ -436,7 +440,15 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 80')
+            send_command('@input /lockstyleset ' .. lockstyle)
+        end
+    
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
         end
 
     elseif command == 'equip TP.Normal set' then

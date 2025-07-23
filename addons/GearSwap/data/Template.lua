@@ -1,16 +1,13 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 20
+send_command('wait 4; input /lockstyleset ' .. lockstyle) -- Change to your preferred lockstyle set (in game under Macros > Edit Equips Set)
+
 -----------------------MACRO BOOK------------------
 -- This is the macro book and set that will be used when you log in.
 -- You can change the book and set numbers to your preference.
 
 send_command('input /macro book 2') -- Change to your preferred macro book
 send_command('wait 4; input /macro set 10') -- Change to your preferred macro set (default is set 1)
-send_command('wait 4; input /lockstyleset 40') -- Change to your preferred lockstyle set (in game under Macros > Edit Equips Set)
-
-function sub_job_change(new, old)
-    send_command('wait 3; input /lockstyleset 40') -- Set your lockstyle after sub job change
-end
-
-
 
 
 
@@ -46,6 +43,7 @@ send_command(
 send_command(
     'bind ^F11 input /equip L.ring "Dim. Ring (Holla)"; input /echo TELEPORT TO HOLLA IN 10 SECONDS.;wait 12; input /item "Dim. Ring (Holla)" <me>') -- Bind CTRL+F11 to equip Dim. Ring (Holla)
 
+    
 
 
 
@@ -362,6 +360,10 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 3; input /lockstyleset ' .. lockstyle) -- Set your lockstyle after sub job change
+end
+
 
 
 
@@ -397,7 +399,7 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
          if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 40') -- Lockstyle after Idle set change
+            send_command('@input /lockstyleset ' .. lockstyle) -- Lockstyle after Idle set change
         end
 
     elseif command == 'equip TP.Normal set' then

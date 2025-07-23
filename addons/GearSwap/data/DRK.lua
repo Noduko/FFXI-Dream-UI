@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 160
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 4')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 160')
-
-function sub_job_change(new, old)
-    send_command('wait 4; input /lockstyleset 160')
-end
 
 -----------------------BINDING------------------
 
@@ -17,13 +16,13 @@ send_command('bind !numpad3 input /ma "Sleep II" <t>')
 
 send_command('bind !numpad4 input /ma "Dread Spikes" <me>')
 send_command('bind !numpad5 input /ma "Endark II" <me>')
-send_command('bind !numpad6 input /ja "Nether Void" <me>; wait 1.5;  input /ma "Drain III" <t>')
+send_command('bind !numpad6 input /ja "Nether Void" <me>; wait 1; input /ja "Dark Seal" <me>; wait 1.5;  input /ma "Drain III" <t>')
 
 -- GEAR--
 
-send_command('bind ^f1 gs c equip TP.Normal')
-send_command('bind ^f2 gs c equip TP.Accuracy')
-send_command('bind ^f3 gs c equip TP.DT')
+send_command('bind ^f1 gs c equip TP.Normal set')
+send_command('bind ^f2 gs c equip TP.Accuracy set')
+send_command('bind ^f3 gs c equip TP.DT set')
 send_command('bind ^f4 gs c toggle TP.Others')
 send_command('bind ^f5 gs c toggle Idle')
 send_command('bind ^f6 gs c toggle AutoWS')
@@ -47,6 +46,7 @@ send_command('bind !numpad/ input /item "Grape Daifuku" <me>')
 send_command('bind !numpad- input /sack')
 send_command('bind !numpad+ input /attack <bt>')
 send_command('bind !numpad. input /mount chocobo')
+
 
 
 
@@ -347,7 +347,7 @@ function get_sets()
         hands = "Fallen's Finger Gauntlets +3",
         legs = "Eschite Cuisses",
         feet = "Ratri Sollerets",
-        neck = "Sanctity Necklace",
+        neck = "Erra Pendant",
         waist = "Eschan Stone",
         left_ear = "Malignance Earring",
         right_ear = "Heathen's Earring +1",
@@ -363,8 +363,8 @@ function get_sets()
         hands = "Fallen's Finger Gauntlets +3",
         legs = "Heathen's Flanchard +2",
         feet = "Ratri Sollerets",
-        neck = "Sanctity Necklace",
-        waist = "Eschan Stone",
+        neck = "Erra Pendant",
+        waist = "Austerity Belt +1",
         back = "Niht Mantle",
         left_ear = "Nehalennia Earring",
         right_ear = "Hirudinea Earring",
@@ -396,7 +396,7 @@ function get_sets()
         hands = "Fallen's Finger Gauntlets +3",
         legs = "Eschite Cuisses",
         feet = "Ignominy's Sollerets",
-        neck = "Sanctity Necklace",
+        neck = "Erra Pendant",
         waist = "Casso Sash",
         left_ear = "Malignance Earring",
         right_ear = "Vor Earring",
@@ -548,8 +548,12 @@ function status_change(new, old)
         else
         equip(sets.Idle[state.IdleMode.value])
     end
-
 end
+
+function sub_job_change(new, old)
+    send_command('wait 3; input /lockstyleset ' .. lockstyle)
+end
+
 
 function self_command(command)
 
@@ -563,7 +567,7 @@ function self_command(command)
         send_command('input /echo -- Weapons Set changed to Apocalypse.')
         state.AutoWS = M{'Off', 'Catastrophe'}
 
-    elseif command == 'equip TP.Normal' then
+    elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -571,7 +575,7 @@ function self_command(command)
             equip(sets.TP[state.EngageMode.value])
         end
 
-    elseif command == 'equip TP.Accuracy' then
+    elseif command == 'equip TP.Accuracy set' then
         state.EngageMode:set('Accuracy')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -579,7 +583,7 @@ function self_command(command)
             equip(sets.TP[state.EngageMode.value])
         end
 
-    elseif command == 'equip TP.DT' then
+    elseif command == 'equip TP.DT set' then
         state.EngageMode:set('DT')
         update_infohud_display()
         windower.chat.input(('/echo -- TP Set changed to %s --'):format(state.EngageMode.value))
@@ -611,7 +615,15 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 160')
+            send_command('@input /lockstyleset ' .. lockstyle)
+        end
+
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
         end
 
     elseif command == 'toggle AutoWS' then

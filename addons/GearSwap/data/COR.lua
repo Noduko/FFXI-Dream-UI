@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 120
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 3')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 120')
-
-function sub_job_change(new, old)
-    send_command('wait 2; input /lockstyleset 120')
-end
 
 -----------------------BINDING------------------
 
@@ -163,7 +162,7 @@ function get_sets()
         hands = {name = "Adhemar Wrist. +1", augments = {'DEX+12', 'AGI+12', 'Accuracy+20'}},
         legs = { name = "Samnuha Tights", augments = {'STR+10', 'DEX+10', '"Dbl.Atk."+3', '"Triple Atk."+3'}},
         feet = {name = "Herculean Boots", augments = {'"Dbl.Atk."+2', '"Subtle Blow"+9', 'Quadruple Attack +2', 'Accuracy+12 Attack+12', 'Mag. Acc.+18 "Mag.Atk.Bns."+18'}},
-        neck = "Sanctity Necklace",
+        neck = "Iskur Gorget",
         -- neck="Commodore Charm +1",
         waist = "Windbuffet Belt +1",
         left_ear = "Telos Earring",
@@ -183,9 +182,9 @@ function get_sets()
         neck = "Null Loop",
         -- neck="Commodore Charm +1",
         waist = "Null Belt",
-        left_ear = "Steelflash Earring",
-        right_ear = "Heartseeker Earring",
-        left_ring = "Cacoethic Ring +1",
+        left_ear = "Dedition Earring",
+        right_ear = "Brutal Earring",
+        left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         back = "Null Shawl",
     }
@@ -196,10 +195,10 @@ function get_sets()
         hands = "Adhemar Wrist. +1",
         legs = "Malignance Tights",
         feet = "Malignance Boots",
-        neck = "Null Loop",
+        neck = "Iskur Gorget",
         -- neck="Commodore Charm +1",
         waist = "Windbuffet Belt +1",
-        left_ear = "Brutal Earring",
+        left_ear = "Dedition Earring",
         right_ear = "Cessance Earring",
         left_ring = "Epona's Ring",
         right_ring = "Defending Ring",
@@ -230,7 +229,8 @@ function get_sets()
         feet = "Meg. Jam. +2",
         neck = "Commodore Charm +1",
         left_ear = "Neritic Earring",
-        waist = "Yemaya Belt",
+        left_ring = "Crepuscular Ring ",
+        waist = "Impulse Belt",
         back = {name = "Camulus's Mantle", augments = {'INT+20', 'Eva.+20 /Mag. Eva.+20', 'Mag. Evasion+10', '"Snapshot"+10', 'Mag. Evasion+15'}}
     }
 
@@ -243,8 +243,8 @@ function get_sets()
         neck = "Null Loop",
         waist = "Yemaya Belt",
         left_ear = "Enervating Earring",
-        right_ear = "Cessance Earring",
-        left_ring = "Cacoethic Ring +1",
+        right_ear = "Telos Earring",
+        left_ring = "Ilabrat Ring",
         right_ring = "Crepuscular Ring",
         back = {
             name = "Camulus's Mantle",
@@ -310,8 +310,8 @@ function get_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250'} },
-        left_ring="Shiva Ring",
-        right_ring="Shiva Ring",
+        left_ring="Dingir Ring",
+        right_ring="Cornelia's Ring",
         back={ name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Mag. Evasion+15'} }
 }
 
@@ -325,7 +325,7 @@ function get_sets()
         waist="Orpheus's Sash",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250'} },
-        left_ring="Cornelia's Ring",
+        left_ring="Dingir Ring",
         right_ring="Archon Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15'} }
 }
@@ -341,7 +341,8 @@ function get_sets()
         waist="Eschan Stone",
         left_ear="Friomisi Earring",
         right_ear={ name="Moonshade Earring", augments={'Attack+4','TP Bonus +250'} },
-        right_ring="Archon Ring",
+        right_ring="Cornelia's Ring",
+        left_ring="Dingir Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Mag. Evasion+15'} }
 }
 
@@ -357,7 +358,7 @@ function get_sets()
         left_ear="Moonshade Earring",
         right_ear="Ishvara Earring",
         left_ring="Cornelia Ring",
-        right_ring="Apate Ring",
+        right_ring="Dingir Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+5','Weapon skill damage +10%'} }
 }
 
@@ -372,7 +373,7 @@ function get_sets()
         left_ear="Moonshade Earring",
         right_ear="Friomisi Earring",
         left_ring="Cornelia Ring",
-        right_ring="Apate Ring",
+        right_ring="Dingir Ring",
         back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+5','Weapon skill damage +10%'} }
     }
     ----------------------- JOB ABILITY SETS -----------------------
@@ -409,8 +410,8 @@ function get_sets()
         waist="Eschan Stone",
         left_ear="Friomisi Earring",
         right_ear="Hecate's Earring",
-        left_ring="Crepuscular Ring",
-        right_ring="Mummu Ring"
+        left_ring="Dingir Ring",
+        right_ring="Crepuscular Ring",
 }
 
    sets.QuickDrawMACC = {
@@ -612,6 +613,11 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 2; input /lockstyleset ' .. lockstyle)
+end
+
+
 function self_command(command)
 
     if command == 'equip weapon naegling' then
@@ -650,7 +656,15 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 120')
+            send_command('@input /lockstyleset ' .. lockstyle)
+        end
+    
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
         end
 
     elseif command == 'toggle Luzaf ring' then

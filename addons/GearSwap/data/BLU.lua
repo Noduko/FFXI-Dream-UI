@@ -1,11 +1,10 @@
+-----------------------LOCKSTYLE------------------
+local lockstyle = 20
+send_command('wait 4; input /lockstyleset ' .. lockstyle)
+
 -----------------------MACRO BOOK------------------
 send_command('input /macro book 1')
 send_command('wait 4; input /macro set 10')
-send_command('wait 4; input /lockstyleset 20')
-
-function sub_job_change(new, old)
-    send_command('wait 2; input /lockstyleset 20')
-end
 
 -----------------------BINDING------------------
 
@@ -63,7 +62,6 @@ send_command('bind !numpad+ input /attack <bt>')
 send_command('bind !numpad. input /mount chocobo')
 
 send_command('bind ^insert lua load bluguide')
-
 
 
 
@@ -152,13 +150,12 @@ function get_sets()
         hands = "Adhemar Wrist. +1",
         legs = "Samnuha Tights",
         feet={ name="Herculean Boots", augments={'"Dbl.Atk."+2','"Subtle Blow"+9','Quadruple Attack +2','Accuracy+12 Attack+12','Mag. Acc.+18 "Mag.Atk.Bns."+18',}},
-        left_ear = "Telos Earring",
+        left_ear = "Dedition Earring",
         right_ear = "Suppanomimi",
         left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         waist = "Sailfi Belt +1",
         back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dual Wield"+10','Damage taken-5%',}},
-        -- back="Aptitude mantle +1",
     }
 
     sets.TP.Accuracy = {
@@ -169,13 +166,12 @@ function get_sets()
         hands = "Gazu Bracelets +1",
         legs = "Malignance Tights",
         feet = "Malignance Boots",
-        left_ear = "Telos Earring",
+        left_ear = "Dedition Earring",
         right_ear = "Suppanomimi",
         left_ring = {name = "Chirich Ring +1", bag="Wardrobe 1"},
         right_ring = {name = "Chirich Ring +1", bag="Wardrobe 2"},
         waist = "Null Belt",
         back = "Null Shawl",
-        -- back="Aptitude mantle +1",
     }
 
     sets.TP.DT = {
@@ -598,6 +594,11 @@ function status_change(new, old)
     end
 end
 
+function sub_job_change(new, old)
+    send_command('wait 2; input /lockstyleset ' .. lockstyle)
+end
+
+
 function self_command(command)
 
     if command == 'equip weapon tizona' then
@@ -626,8 +627,17 @@ function self_command(command)
         windower.chat.input(('/echo -- Idle Set changed to %s --'):format(state.IdleMode.value))
         if player.status ~= 'Engaged' then
             equip(sets.Idle[state.IdleMode.value])
-            send_command('@input /lockstyleset 20')
+            send_command('@input /lockstyleset ' .. lockstyle)
         end
+
+    elseif command == 'equip Idle.DT set' then
+        state.IdleMode:set('DT')
+        update_infohud_display()
+        send_command('input /echo -- Idle Set changed to DT.')
+        if player.status ~= 'Engaged' then
+            equip(sets.Idle.DT)
+        end
+
 
     elseif command == 'equip TP.Normal set' then
         state.EngageMode:set('Normal')
