@@ -178,7 +178,16 @@ function uiPartyList:update()
     -- update the background
     local count = self.listItems:length()
     local rowCount = math.floor((count - 1) / self.layout.columns) + 1
-    if partySettings.showEmptyRows then
+	local party = windower.ffxi.get_party()
+
+	local member_count = 0
+	for i = 0, 5 do  -- party has 6 slots: p0 to p5
+		if party['p'..i] ~= nil then
+			member_count = member_count + 1
+		end
+	end
+
+    if partySettings.showEmptyRows and member_count > 1 then
         rowCount = self.layout.rows
     end
     local contentHeight = rowCount * self.layout.rowHeight + (rowCount - 1) * partySettings.itemSpacing

@@ -4,21 +4,21 @@
         <alliance1>
             <alignBottom>true</alignBottom>
             <itemSpacing>0</itemSpacing>
-            <pos>0.93229166666667,0.79814814814815</pos>
-            <scale>0.75,0.75</scale>
+            <pos>0.92135416666667,0.78166666666667</pos>
+            <scale>0.8,0.8</scale>
             <showEmptyRows>true</showEmptyRows>
         </alliance1>
         <alliance2>
             <alignBottom>true</alignBottom>
             <itemSpacing>0</itemSpacing>
-            <pos>0.93229166666667,0.64074074074074</pos>
-            <scale>0.75,0.75</scale>
+            <pos>0.92135416666667,0.62907407407407</pos>
+            <scale>0.8,0.8</scale>
             <showEmptyRows>true</showEmptyRows>
         </alliance2>
         <buffs>
             <customOrder>true</customOrder>
-            <filterMode>blacklist</filterMode>
-            <filters />
+            <filterMode>whitelist</filterMode>
+            <filters></filters>
         </buffs>
         <hideAlliance>false</hideAlliance>
         <hideCutscene>true</hideCutscene>
@@ -29,9 +29,9 @@
         <party>
             <alignBottom>true</alignBottom>
             <itemSpacing>0</itemSpacing>
-            <pos>0.91927083333333,0.98351851851852</pos>
-            <scale>0.9,0.9</scale>
-            <showEmptyRows>false</showEmptyRows>
+            <pos>0.90572916666667,0.9812962962963</pos>
+            <scale>1,1</scale>
+            <showEmptyRows>true</showEmptyRows>
         </party>
         <rangeIndicator>0</rangeIndicator>
         <rangeIndicatorFar>0</rangeIndicatorFar>
@@ -39,12 +39,4 @@
         <swapSingleAlliance>false</swapSingleAlliance>
         <updateIntervalMsec>30</updateIntervalMsec>
     </global>
-    <dreameyes>
-        <alliance1>
-            <pos>0.9328125,0.80555555555556</pos>
-        </alliance1>
-        <alliance2>
-            <pos>0.93229166666667,0.66574074074074</pos>
-        </alliance2>
-    </dreameyes>
 </settings>

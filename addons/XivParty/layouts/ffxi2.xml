@@ -259,22 +259,22 @@
                     <color>#FFFFFFFF</color>
                     <enabled>true</enabled>
                     <path>assets/ffxi/Cursor.png</path>
-                    <pos>-24,7</pos>
+                    <pos>-45,7</pos>
                     <size>37,24</size>
-                    <scale>0.75,0.75</scale>
+                    <scale>1,1</scale>
                     <zOrder>6</zOrder>
                 </cursor>
                 <buffIcons>
                     <alignRight>true</alignRight>
                     <color>#FFFFFFFF</color>
-                    <enabled>false</enabled>
-                    <numIconsByRow>16,0</numIconsByRow>
-                    <offsetByRow>0,0</offsetByRow>
+                    <enabled>true</enabled>
+                    <numIconsByRow>7,7</numIconsByRow>
+                    <offsetByRow>7,7</offsetByRow>
                     <path>assets/buffIcons/</path>
-                    <pos>-25,5</pos>
-                    <size>20,20</size>
+                    <pos>-15,5</pos>
+                    <size>15,15</size>
                     <spacing>0,1</spacing>
-                    <zOrder>9</zOrder>
+                    <zOrder>-9</zOrder>
                 </buffIcons>
                 <txtName>
                     <color>#F0FFFFFF</color>
