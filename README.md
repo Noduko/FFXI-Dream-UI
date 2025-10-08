@@ -75,7 +75,7 @@ Below is how you can adjust the position settings inidividually. If you want to 
 | **[EquipViewer](https://github.com/Windower/Lua/tree/live/addons/equipviewer)** | • Open `addons\EquipViewer\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
 | **[Minimap](https://docs.windower.net/plugins/ffxidb/)** | • Adjust position in-game by dragging the map to your preferred location. |
 | **[FindAll (Inventory Tracking)](https://github.com/Windower/Lua/tree/live/addons/findAll)** | • Open `addons\FindAll\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
-| **[XivParty (Party List)](https://github.com/Tylas11/XivParty)** | • Open `addons\XivParty\data\settings.xml`<br>• Adjust position inside the `<pos>` tag or type `//xivparty setup` in-game to move/resize with the mousewheel. |
+| **[XivParty (Party List)](https://github.com/Tylas11/XivParty)** | • Open `addons\XivParty\data\settings.xml`<br>• Adjust position inside the `<pos>` tag or type `//xivparty setup` in-game to move/resize with the mousewheel.<br>• To display party members' buff/debuff, edit the settings under <buffs> (choose whitelist or blacklist mode and add the buff/debuff IDs to the filters. IDs can be found from the file bufforder.lua |
 | **[Timers](https://docs.windower.net/plugins/timers/)** | • Open `plugins\settings\Timers.xml`<br>• Adjust X/Y positions in `<RecastX>, <RecastY>, <BuffX>, <BuffY>` tags. |
 | **[ZoneName](https://github.com/onimitch/ffxi-zonename)** | • Open `addons\zonename\data\settings.xml`<br>• Adjust position inside the `<pos>` tag. |
 
