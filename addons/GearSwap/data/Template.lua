@@ -262,8 +262,9 @@ function get_sets()
 
     ----------------------- ITEM SETS -----------------------
 
-    sets.HolyWater = {
-        neck = "Nicander's Necklace"
+     sets.HolyWater = {
+        neck = "Nicander's Necklace",
+        left_ring = "Purity Ring",
     }
 
 end
@@ -277,7 +278,7 @@ end
 -----------------------
 
 function precast(spell)
--- THese are the gear equipments that will be swapped when you cast a spell or use a job ability.
+-- These are the gear equipments that will be swapped when you cast a spell or use a job ability.
 
     if spell.type == 'WeaponSkill' and player.tp >= 1000 and player.target.distance < 4.5 then
 
