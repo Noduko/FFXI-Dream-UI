@@ -13,7 +13,7 @@ send_command('wait 4; input /macro set 10') -- Change to your preferred macro se
 
 -----------------------BINDING------------------
 -- This section binds keys to specific actions or commands.
--- For example, you can set CTRL+F1 to equip your TP Normal set or CTRL+12 to use your Warp ring.
+-- For example, you can set CTRL+F1 to equip your TP Normal set or CTRL+F12 to use your Warp ring.
 -- E.g. "send_command('bind !numpad1 input /ja "Seigan" <me>; wait 1; input /ja "Third Eye" <me>')" to trigger Seigan and Third Eye with a single key press.
 
 
