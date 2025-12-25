@@ -64,7 +64,7 @@ function get_sets()
     state.EngageMode = M{'Normal', 'Accuracy', 'DT', 'TH'}
     state.AutoWS = M{'Off', 'Tachi: Fudo', 'Tachi: Shoha'} -- Change the Weapon Skills you want to spam automatically when you reach 1000 TP.
 
-    update_infohud_display()()
+    update_infohud_display()
 
     ----------------------- WEAPONS SETS -----------------------	
     -- Replace with your weapons.
